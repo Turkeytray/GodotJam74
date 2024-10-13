@@ -3,7 +3,7 @@ extends Area2D
 var inRadius := false
 
 func _ready() -> void:
-	pass 
+	pass
 
 func _process(_delta: float) -> void:
 	if Input.is_key_pressed(KEY_E) and inRadius:

@@ -20,6 +20,7 @@ position = Vector2(791, 790)
 
 [node name="InteractionPopup" type="CanvasLayer" parent="."]
 layer = 5
+visible = false
 
 [node name="InteractText" type="RichTextLabel" parent="InteractionPopup"]
 offset_left = 496.0

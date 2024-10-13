@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfd3j5n1x1owq"]
+[gd_scene load_steps=5 format=3 uid="uid://bfd3j5n1x1owq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_asiiv"]
+[ext_resource type="Shader" path="res://Shaders/Screen.gdshader" id="2_gxxm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3ai8"]
 size = Vector2(64, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6vhq"]
+shader = ExtResource("2_gxxm8")
+shader_parameter/grain_amount = 0.035
+shader_parameter/grain_size = 1.5
+shader_parameter/animate = true
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_asiiv")
@@ -32,3 +39,13 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
 drag_right_margin = 0.1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera/CanvasLayer"]
+material = SubResource("ShaderMaterial_r6vhq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
