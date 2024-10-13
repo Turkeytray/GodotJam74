@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cqga25khhcm73"]
+[gd_scene load_steps=4 format=4 uid="uid://cqga25khhcm73"]
 
 [ext_resource type="PackedScene" uid="uid://bfd3j5n1x1owq" path="res://Scenes/Player.tscn" id="1_ba4gk"]
 [ext_resource type="TileSet" uid="uid://bwvsewx2olocn" path="res://Resources/testing_tiles.tres" id="1_dr5hf"]
+[ext_resource type="PackedScene" uid="uid://d10cfrp2paw0k" path="res://Scenes/Note.tscn" id="3_2bl5v"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,3 +14,18 @@ use_kinematic_bodies = true
 
 [node name="Player" parent="." instance=ExtResource("1_ba4gk")]
 position = Vector2(565, 247)
+
+[node name="Note" parent="." instance=ExtResource("3_2bl5v")]
+position = Vector2(791, 790)
+
+[node name="InteractionPopup" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="InteractText" type="RichTextLabel" parent="InteractionPopup"]
+offset_left = 496.0
+offset_top = 642.0
+offset_right = 640.0
+offset_bottom = 669.0
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "Press E to interact"
