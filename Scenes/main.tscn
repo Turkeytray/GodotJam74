@@ -13,7 +13,3 @@ use_kinematic_bodies = true
 
 [node name="Player" parent="." instance=ExtResource("1_ba4gk")]
 position = Vector2(565, 247)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-visible = false
-zoom = Vector2(0.8, 0.8)
