@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfd3j5n1x1owq"]
+[gd_scene load_steps=17 format=3 uid="uid://bfd3j5n1x1owq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_asiiv"]
 [ext_resource type="Shader" path="res://Shaders/Screen.gdshader" id="2_gxxm8"]
+[ext_resource type="Texture2D" uid="uid://dmoitv6xm8pv5" path="res://Textures/World/pixil-frame-0.png" id="3_1p6mj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3ai8"]
 size = Vector2(64, 64)
@@ -12,6 +13,84 @@ shader_parameter/grain_amount = 0.05
 shader_parameter/grain_size = 0.4
 shader_parameter/animate = true
 shader_parameter/on = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ce8i"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ci3f"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iicfp"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11gnh"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ya64"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcbte"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udlkd"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaeo3"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u417"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73jpd"]
+atlas = ExtResource("3_1p6mj")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tf4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ce8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ci3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iicfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11gnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ya64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcbte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udlkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaeo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u417")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73jpd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_asiiv")
@@ -51,3 +130,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.129412, 1, 0.258824, 1)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_3tf4m")
