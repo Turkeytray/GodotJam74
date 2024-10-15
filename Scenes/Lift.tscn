@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbbpepggrsnxv"]
+
+[ext_resource type="Script" path="res://Scripts/lift.gd" id="1_ociak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2812v"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88lpn"]
+radius = 64.0
+
+[node name="Lift" type="AnimatableBody2D"]
+script = ExtResource("1_ociak")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2812v")
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="TempColor" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Interaction" type="Area2D" parent="."]
+
+[node name="InteractionBox" type="CollisionShape2D" parent="Interaction"]
+shape = SubResource("CircleShape2D_88lpn")
+
+[connection signal="body_entered" from="Interaction" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Interaction" to="." method="_on_player_exited"]
