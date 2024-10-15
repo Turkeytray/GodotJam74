@@ -2,3 +2,4 @@
 .godot/
 /android/
 /github_token.txt
+export_presets.cfg
