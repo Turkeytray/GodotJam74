@@ -30,9 +30,50 @@ size_flags_horizontal = 4
 color = Color(1, 0.0705882, 0, 1)
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
-polygon = PackedVector2Array(0, 25, 400, 125, 400, -125, 0, -25)
+polygon = PackedVector2Array(0, 25, 400, 125, 400, -125, 0, -25, 0, -15.5077)
 
-[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detected"]
-[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_lost"]
+[node name="Ray1" type="RayCast2D" parent="."]
+position = Vector2(0, 25)
+target_position = Vector2(400, 100)
+
+[node name="Ray2" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(400, 80)
+
+[node name="Ray3" type="RayCast2D" parent="."]
+position = Vector2(0, 15)
+target_position = Vector2(400, 60)
+
+[node name="Ray4" type="RayCast2D" parent="."]
+position = Vector2(0, 10)
+target_position = Vector2(400, 40)
+
+[node name="Ray5" type="RayCast2D" parent="."]
+position = Vector2(0, 5)
+target_position = Vector2(400, 20)
+
+[node name="Ray6" type="RayCast2D" parent="."]
+target_position = Vector2(400, 0)
+
+[node name="Ray7" type="RayCast2D" parent="."]
+position = Vector2(0, -5)
+target_position = Vector2(400, -20)
+
+[node name="Ray8" type="RayCast2D" parent="."]
+position = Vector2(0, -10)
+target_position = Vector2(400, -40)
+
+[node name="Ray9" type="RayCast2D" parent="."]
+position = Vector2(0, -15)
+target_position = Vector2(400, -60)
+
+[node name="Ray10" type="RayCast2D" parent="."]
+position = Vector2(0, -20)
+target_position = Vector2(400, -80)
+
+[node name="Ray11" type="RayCast2D" parent="."]
+position = Vector2(0, -25)
+target_position = Vector2(400, -100)

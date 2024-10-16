@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed := 300
 var collectedPieces := 5
+var running := false
 
 signal returnPieces
 
@@ -9,6 +10,15 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
+	if Input.is_key_pressed(KEY_SHIFT) and not running:
+		@warning_ignore("narrowing_conversion")
+		speed *= 1.75
+		running = true
+	if not Input.is_key_pressed(KEY_SHIFT) and running:
+		@warning_ignore("narrowing_conversion")
+		speed /= 1.75
+		running = false
+	
 	if Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down"):
 		$PlayerSprite.play()
 	else:
