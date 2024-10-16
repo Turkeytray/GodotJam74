@@ -29,12 +29,6 @@ pivot_offset = Vector2(32, 32)
 size_flags_horizontal = 4
 color = Color(1, 0.0705882, 0, 1)
 
-[node name="PlayerDetector" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
-polygon = PackedVector2Array(0, 25, 400, 125, 400, -125, 0, -25, 0, -15.5077)
-
 [node name="Ray1" type="RayCast2D" parent="."]
 position = Vector2(0, 25)
 target_position = Vector2(400, 100)
