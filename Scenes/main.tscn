@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cqga25khhcm73"]
+[gd_scene load_steps=7 format=4 uid="uid://cqga25khhcm73"]
 
 [ext_resource type="TileSet" uid="uid://cn1ixgdoirx55" path="res://Resources/world_textures.tres" id="1_0rrrd"]
 [ext_resource type="PackedScene" uid="uid://bfd3j5n1x1owq" path="res://Scenes/Player.tscn" id="1_ba4gk"]
 [ext_resource type="PackedScene" uid="uid://d10cfrp2paw0k" path="res://Scenes/Note.tscn" id="3_2bl5v"]
 [ext_resource type="Script" path="res://Scripts/Buttons/quit_game.gd" id="4_2msx4"]
 [ext_resource type="PackedScene" uid="uid://bbbpepggrsnxv" path="res://Scenes/Lift.tscn" id="4_41n70"]
+[ext_resource type="PackedScene" uid="uid://dny6vk3jcwhot" path="res://Scenes/Enemy.tscn" id="6_sqxuy"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -62,6 +63,9 @@ script = ExtResource("4_2msx4")
 
 [node name="Lift" parent="." instance=ExtResource("4_41n70")]
 position = Vector2(770, 159)
+
+[node name="Enemy" parent="." instance=ExtResource("6_sqxuy")]
+position = Vector2(200, 1072)
 
 [connection signal="returnPieces" from="Player" to="Lift" method="_on_player_return_pieces"]
 [connection signal="button_down" from="InteractionPopup/QuitGame" to="InteractionPopup/QuitGame" method="_on_button_down"]
