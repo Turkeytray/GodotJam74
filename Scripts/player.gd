@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	velocity = speed * direction
 	
 	move_and_slide()
-	
+
 func _on_lift_place():
 	if collectedPieces < 0:
 		return

@@ -2,6 +2,7 @@ extends Area2D
 
 var inRadius := false
 @onready var interactionPopUp : CanvasLayer = get_parent().get_parent().get_node("InteractionPopup")
+@onready var interactTextPopUp : RichTextLabel = interactionPopUp.get_node("InteractText")
 @onready var textPopUp : RichTextLabel = interactionPopUp.get_node("TextPopUp")
 var text := "null"
 
@@ -16,12 +17,12 @@ func _process(_delta: float) -> void:
 func _on_player_enter(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	interactionPopUp.visible = true
+	interactTextPopUp.show()
 	inRadius = true
 
 func _on_player_exited(body: Node2D) -> void:
 	if body.name != "Player":
 		return
-	interactionPopUp.visible = false
+	interactTextPopUp.hide()
 	textPopUp.hide()
 	inRadius = false
