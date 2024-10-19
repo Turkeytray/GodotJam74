@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfd3j5n1x1owq"]
+[gd_scene load_steps=18 format=3 uid="uid://bfd3j5n1x1owq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_asiiv"]
 [ext_resource type="Shader" path="res://Shaders/Screen.gdshader" id="2_gxxm8"]
@@ -92,6 +92,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovdrc"]
+size = Vector2(65, 65)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_asiiv")
 
@@ -134,3 +137,10 @@ color = Color(0.129412, 1, 0.258824, 1)
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_3tf4m")
+
+[node name="EnemyDeath" type="Area2D" parent="."]
+
+[node name="EnemyDeathHitbox" type="CollisionShape2D" parent="EnemyDeath"]
+shape = SubResource("RectangleShape2D_ovdrc")
+
+[connection signal="body_entered" from="EnemyDeath" to="." method="_on_enemy_touched"]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 var speed := 150
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
@@ -13,7 +14,6 @@ func _ready() -> void:
 			detectPlayer.append(false)
 
 func _process(_delta: float) -> void:
-	
 	_find_player()
 	
 	if _is_player_noticed(detectPlayer):
@@ -23,17 +23,6 @@ func _process(_delta: float) -> void:
 		playerNoticed = false
 	
 	_move_with_player_detection()
-
-func _on_player_detected(body: Node2D) -> void:
-	if body.name != "Player":
-		return
-	playerNoticed = true
-
-func _on_player_lost(body: Node2D) -> void:
-	if body.name != "Player":
-		return
-	lastSeenPosition = player.position
-	playerNoticed = false
 
 func _find_player() -> void:
 	for ray in get_children():

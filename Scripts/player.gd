@@ -34,3 +34,7 @@ func _on_lift_place():
 		return
 	returnPieces.emit(collectedPieces)
 	collectedPieces = 0
+
+func _on_enemy_touched(body: Node2D) -> void:
+	if body is Enemy:
+		queue_free()
