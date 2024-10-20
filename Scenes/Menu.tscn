@@ -31,6 +31,7 @@ text = "Settings"
 script = ExtResource("2_lsyf1")
 
 [node name="Quit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 527.0
 offset_top = 214.0
 offset_right = 658.0

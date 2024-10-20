@@ -50,6 +50,12 @@ func _move_with_player_detection() -> void:
 		
 		rotation = lerp_angle(rotation, (player.position - position).normalized().angle(), 0.0325)
 		velocity = speed * direction
+		
+		$AnimatedSprite2D.play("default")
+		
+		if not $Walk.playing:
+			_walk_sounds()
+			$Walk.play()
 	
 	if not playerNoticed and lastSeenPosition:
 		direction = (lastSeenPosition - position).normalized()
@@ -58,11 +64,22 @@ func _move_with_player_detection() -> void:
 		   position.length() > lastSeenPosition.length() + 2:
 			velocity = speed * direction
 			rotation = lerp_angle(rotation, (lastSeenPosition - position).normalized().angle(), 0.0325)
+			
+			$AnimatedSprite2D.play("default")
+			
+			if not $Walk.playing:
+				_walk_sounds()
+				$Walk.play()
 		else:
 			velocity = Vector2.ZERO
 			rotation += 0.01
+			$Walk.stop()
+			$AnimatedSprite2D.stop()
 	
 	$CollisionShape2D.rotation = -rotation
-	$ColorRect.rotation = -rotation
+	$AnimatedSprite2D.rotation = -rotation
 	
 	move_and_slide()
+
+func _walk_sounds() -> void:
+	$Walk.stream = load("res://Resources/Audio/Walk Sounds/walk.ogg")
